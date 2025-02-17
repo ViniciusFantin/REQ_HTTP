@@ -16,23 +16,6 @@
       "price": 200.5
     },
     {
-      "id": "8ac1"
-    },
-    {
-      "id": "bf0a"
-    },
-    {
-      "id": "4c8a"
-    },
-    {
-      "id": "293e"
-    },
-    {
-      "id": "5fb9",
-      "name": "teste",
-      "price": "21.50"
-    },
-    {
       "id": "7139",
       "name": "cadeira",
       "price": "200"
@@ -41,6 +24,16 @@
       "id": "98b2",
       "name": "calça",
       "price": "250"
+    },
+    {
+      "id": "265a",
+      "name": "colar ",
+      "price": "3.60"
+    },
+    {
+      "id": "2bfc",
+      "name": "Sapato",
+      "price": "350"
     }
   ]
 }

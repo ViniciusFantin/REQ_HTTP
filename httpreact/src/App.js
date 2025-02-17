@@ -9,7 +9,7 @@ const url = "http://localhost:3000/products";
 function App() {
   const [products, setProducts] = useState([]);
 
-  const { data: items } = useFetch(url);
+  const { data: items, httpConfig } = useFetch(url);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -34,17 +34,20 @@ function App() {
       price,
     };
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    });
+    //const res = await fetch(url, {
+    //method: "POST",
+    //headers: {
+    //"Content-Type": "application/json",
+    //},
+    //body: JSON.stringify(product),
+    //});
 
-    const addedProduct = await res.json();
+    //const addedProduct = await res.json();
 
-    setProducts((prevProduct) => [...prevProduct, addedProduct]);
+    //setProducts((prevProduct) => [...prevProduct, addedProduct]);
+
+    //refatorando post
+    httpConfig(product, "POST");
 
     setName("");
     setPrice("");
