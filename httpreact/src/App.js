@@ -9,7 +9,7 @@ const url = "http://localhost:3000/products";
 function App() {
   const [products, setProducts] = useState([]);
 
-  const { data: items, httpConfig } = useFetch(url);
+  const { data: items, httpConfig, loading, error, itemId } = useFetch(url);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -53,20 +53,34 @@ function App() {
     setPrice("");
   };
 
+  const handleRemove = (id) => {
+    httpConfig(id, "DELETE");
+  };
+
   return (
     <div className="App">
-      <h1>Lista de Produtos</h1>
-      <ul>
-        {items &&
-          items.map((product) => (
-            <li key={product.id}>
-              {product.name} - R${product.price}
-            </li>
-          ))}
-      </ul>
+      <h1 className="title">Lista de Produtos</h1>
+      {loading && <p> Carregando Dados... </p>}
+      {error && <p>\{error}</p>}
+      {!loading && (
+        <ul className="div">
+          {items &&
+            items.map((product) => (
+              <li key={product.id} className="product-item">
+                {product.name} - R${product.price}
+                <button
+                  className="button"
+                  onClick={() => handleRemove(product.id)}
+                >
+                  Excluir
+                </button>
+              </li>
+            ))}
+        </ul>
+      )}
       <div>
         <form onSubmit={handleSubmit}>
-          <label>
+          <label className="text">
             Nome:
             <input
               type="text"
@@ -75,7 +89,7 @@ function App() {
               onChange={(e) => setName(e.target.value)}
             />
           </label>
-          <label>
+          <label className="text">
             Preço
             <input
               type="number"
@@ -84,7 +98,8 @@ function App() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </label>
-          <input type="submit" value="Criar" />
+          {loading && <input type="submit" disabled value="Aguarde" />}
+          {!loading && <input type="submit" value="Criar" />}
         </form>
       </div>
     </div>

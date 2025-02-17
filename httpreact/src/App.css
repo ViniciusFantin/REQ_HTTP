@@ -53,3 +53,40 @@ form input {
   flex-direction: column;
   margin-bottom: 15px;
 }
+
+.title {
+  color: white;
+  border-style: double;
+  border-color: #fff;
+  border-width: 10px;
+  width: 500px;
+  margin: auto;
+}
+
+input {
+  border-style: mixed;
+  border-color: blue;
+  border-width: 2px;
+}
+.button {
+  border-style: mixed;
+  border-color: red;
+  margin-left: 10px;
+}
+
+.text {
+  color: #fff;
+}
+
+.product-item {
+  color: #fff;
+}
+
+.div {
+  border-style: solid;
+  border-color: white;
+  width: 500px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
